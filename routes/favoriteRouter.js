@@ -3,6 +3,8 @@ const Favorite = require('../models/favorite');
 const authenticate = require('../authenticate');
 const cors = require('./cors');
 
+const favoriteRouter = express.Router();
+
 favoriteRouter.route('/') 
 .options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
 .get(cors.cors, authenticate.verifyUser, (req, res, next) => {
